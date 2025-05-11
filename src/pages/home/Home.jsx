@@ -12,7 +12,7 @@ import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
-    <>
+    <div className="home-container">
       <Header />
       <Carousel />
       <Ads />
@@ -21,7 +21,7 @@ const Home = () => {
       <Ads/>
       <MiniBlog />
       <Footer/>
-    </>
+    </div>
   );
 };
 
