@@ -4,7 +4,7 @@ import menuIcon from "/images/menu-white.svg";
 import closeIcon from "/images/close-white.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleStatusTab } from "../../stores/cart";
-import "./header.css";
+import "./Header.css";
 import { Link } from "react-router-dom";
 
 const Header = () => {
