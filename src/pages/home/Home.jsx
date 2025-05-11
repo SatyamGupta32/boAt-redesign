@@ -5,9 +5,9 @@ import Header from '../../components/Header/header'
 import Carousel from "../../components/Carousel/Carousel";
 import ProductList from "../../components/Product-List/ProductList";
 import Categories from "../../components/Categories/Categories";
-import Ads from "../../components/Ads/ads";
 import MiniBlog from "../../components/Mini_Blog/MiniBlog";
 import Footer from "../../components/Footer/Footer";
+import Ads from '../../components/Ads/Ads';
 
 
 const Home = () => {
