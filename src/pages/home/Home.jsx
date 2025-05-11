@@ -2,7 +2,7 @@
 import React, { useEffect } from "react";
 import "./home.css";
 import Header from '../../components/Header/header'
-import Carousel from "../../components/Carousel/CArousel";
+import Carousel from "../../components/Carousel/Carousel";
 import ProductList from "../../components/Product-List/ProductList";
 import Categories from "../../components/Categories/Categories";
 import Ads from "../../components/Ads/ads";
