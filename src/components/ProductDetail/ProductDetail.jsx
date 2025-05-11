@@ -25,6 +25,13 @@ const ProductDetail = () => {
     rating: 0,
     comment: "",
   });
+  const [zoomStyle, setZoomStyle] = useState({
+    "--display": "none",
+    "--zoom-x": "0%",
+    "--zoom-y": "0%",
+    "--url": `url(${selectedImage})`,
+  });
+  const [zoomed, setZoomed] = useState(false);
 
   // Load product detail
   useEffect(() => {
@@ -61,27 +68,32 @@ const ProductDetail = () => {
   };
 
   // Image zoom handlers
+  // Update background URL any time the image changes
   useEffect(() => {
-    if (!selectedImage) return;
-    const imageZoom = document.getElementById("imageZoom");
-    if (!imageZoom) return;
-    const moveHandler = (event) => {
-      imageZoom.style.setProperty("--display", "block");
-      const x = (event.offsetX * 100) / imageZoom.offsetWidth;
-      const y = (event.offsetY * 100) / imageZoom.offsetHeight;
-      imageZoom.style.setProperty("--zoom-x", x + "%");
-      imageZoom.style.setProperty("--zoom-y", y + "%");
-    };
-    const outHandler = () => {
-      imageZoom.style.setProperty("--display", "none");
-    };
-    imageZoom.addEventListener("mousemove", moveHandler);
-    imageZoom.addEventListener("mouseout", outHandler);
-    return () => {
-      imageZoom.removeEventListener("mousemove", moveHandler);
-      imageZoom.removeEventListener("mouseout", outHandler);
-    };
+    setZoomStyle((s) => ({ ...s, "--url": `url(${selectedImage})` }));
   }, [selectedImage]);
+
+  // Handler for mouse movements inside the zoom container
+  const moveHandler = (e) => {
+    const { offsetX, offsetY, target } = e.nativeEvent;
+    const { offsetWidth, offsetHeight } = target;
+    const x = (offsetX * 100) / offsetWidth;
+    const y = (offsetY * 100) / offsetHeight;
+
+    setZoomStyle({
+      "--display": "block",
+      "--zoom-x": `${x}%`,
+      "--zoom-y": `${y}%`,
+      "--url": `url(${selectedImage})`,
+    });
+    setZoomed(true);    
+  };
+
+  // Handler for when the mouse leaves the zoom container
+  const outHandler = () => {
+    setZoomed(false);
+    setZoomStyle((s) => ({ ...s, "--display": "none" }));
+  };
 
   const handleMinusQuantity = () => setQuantity((q) => Math.max(1, q - 1));
   const handlePlusQuantity = () => setQuantity((q) => q + 1);
@@ -150,14 +162,18 @@ const ProductDetail = () => {
         <div className="detail-image">
           <div
             id="imageZoom"
+            className={zoomed ? "zoomed" : ""}
+            onMouseMove={moveHandler}
+            onMouseOut={outHandler}
             style={{
-              "--url": `url(${selectedImage})`,
-              "--zoom-x": "0%",
-              "--zoom-y": "0%",
-              "--display": "none",
+              ...zoomStyle,
             }}
           >
-            <img src={selectedImage} alt="Product" />
+            <img
+              src={selectedImage}
+              alt="Product"
+              style={{ display: zoomed ? "none" : "block" }}
+            />
           </div>
           {detail.subImages && (
             <div className="thumbnail-slider">
