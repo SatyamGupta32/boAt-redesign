@@ -1,0 +1,28 @@
+// src/components/Home/Home.jsx
+import React, { useEffect } from "react";
+import "./Home.css";
+import Header from '../../components/Header/header'
+import Carousel from "../../components/Carousel/CArousel";
+import ProductList from "../../components/Product-List/ProductList";
+import Categories from "../../components/Categories/Categories";
+import Ads from "../../components/Ads/ads";
+import MiniBlog from "../../components/Mini_Blog/MiniBlog";
+import Footer from "../../components/Footer/Footer";
+
+
+const Home = () => {
+  return (
+    <>
+      <Header />
+      <Carousel />
+      <Ads />
+      <Categories />
+      <ProductList />
+      <Ads/>
+      <MiniBlog />
+      <Footer/>
+    </>
+  );
+};
+
+export default Home;

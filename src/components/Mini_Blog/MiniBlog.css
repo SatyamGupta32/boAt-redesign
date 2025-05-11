@@ -1,0 +1,157 @@
+.blog-hero-box {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.blog-container {
+    width: 100%;
+    display: flex;
+    padding: 0 40px 0 40px;
+    justify-content: space-between;
+}
+
+
+.line {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    margin-bottom: 50px;
+}
+
+.blog-card {
+    width: 420px;
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+    background-color: rgba(31, 30, 30, 0.911);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-card-body {
+    padding: 10px;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.blog-card-intro {
+    /* clamp to 2 lines */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /* show exactly 2 lines */
+    overflow: hidden;
+    margin-bottom: 12px;
+    color: #ccc;
+    line-height: 1.4em;
+    /* adjust this to suit your font */
+    max-height: calc(1.4em * 2);
+    /* 2 lines worth of height */
+}
+
+.blog-card-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.blog-card-title {
+    margin: 8px 0;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.blog-card-title a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.blog-card-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 12px;
+    display: flex;
+
+}
+
+@media (max-width: 1024px) {
+    .blog-container {
+        padding: 0;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .blog-card {
+        width: 100%;
+        height: 440px;
+    }
+
+    .blog-card-body {
+        padding: 15px;
+    }
+
+    .blog-card-title {
+        font-size: 25px;
+        margin: 0;
+    }
+
+    .blog-card-intro {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .blog-card-link {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-hero-box {
+        padding: 15px;
+    }
+
+    .heading {
+        font-size: 25px;
+    }
+
+    .blog-container {
+        flex-direction: column;
+        padding: 0;
+        gap: 30px;
+    }
+
+    .blog-card {
+        width: 100%;
+        height: 340px;
+    }
+
+    .blog-card-img {
+        height: auto;
+    }
+
+    .blog-card-body {
+        padding: 8px;
+        gap: 0;
+    }
+
+    .blog-card-title {
+        font-size: 16px;
+    }
+
+    .blog-card-intro {
+        font-size: 14px;
+    }
+}

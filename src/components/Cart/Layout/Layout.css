@@ -1,0 +1,15 @@
+ /* Main content wrapper */
+.layout-main {
+    margin: 0 auto;
+    transform: translateX(0);
+    transition: transform 0.5s;
+}
+
+/* When the cart is open: translate left by 56*0.25rem = 14rem */
+.layout-shifted {
+    transform: translateX(-14rem);
+}
+
+.layout-container{
+    overflow-x: hidden;
+}

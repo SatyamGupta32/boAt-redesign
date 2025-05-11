@@ -1,0 +1,127 @@
+/* src/components/ProductList/ProductList.css */
+
+/* Container and headings */
+.product-list {
+    padding: 30px;
+    overflow: hidden;
+}
+
+.heading {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.line {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+    margin-bottom: 50px;
+}
+
+/* Category title */
+.category-heading {
+    font-size: 25px;
+    padding: 20px 0 10px 30px;
+    margin: 20px auto;
+}
+
+.category-product-list{
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Slider wrapper positions the buttons */
+.slider-wrapper {
+    position: relative;
+}
+
+/* Default: 6‑column grid for large screens */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.product-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* Prev/Next buttons (hidden by default) */
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 1;
+    transition: background 0.2s;
+}
+
+.slider-btn:hover {
+    background: rgba(255, 255, 255, 1);
+}
+
+.slider-btn.left {
+    left: 5px;
+}
+
+.slider-btn.right {
+    right: 5px;
+}
+
+/* Tablet: switch to a 4‑item horizontal slider */
+@media (max-width: 1024px) {
+
+    /* Container and headings */
+    .product-list {
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .product-grid {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 1rem 0;
+    }
+
+    .product-grid>* {
+        flex: 0 0 35%;
+        /* four items visible per “page” */
+    }
+
+    .slider-btn {
+        display: block;
+    }
+ 
+    .category-heading {
+        font-size: 30px;
+    }
+
+}
+
+/* Mobile: switch to a 3‑item horizontal slider */
+@media (max-width: 767px) {
+
+    /* Container and headings */
+    .product-list {
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .product-grid>* {
+        flex: 0 0 63.333%;
+        /* three items visible per “page” */
+    }
+    
+    .category-heading {
+        font-size: 20px;
+    }
+}
