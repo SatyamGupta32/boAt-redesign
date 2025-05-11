@@ -1,3 +1,4 @@
+// ProductCart.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import iconCart from "/images/iconCart.png";
@@ -7,7 +8,7 @@ import "./ProductCart.css";
 
 const ProductCart = ({ data }) => {
   useSelector((store) => store.cart.items);
-  const { id, name, price, oldPrice = price, rating = 0, image, slug } = data;
+  const { id, name, price, rating = 0, image } = data;
   const dispatch = useDispatch();
 
   const handleAddToCart = () => {
@@ -16,7 +17,7 @@ const ProductCart = ({ data }) => {
   };
 
   return (
-    <Link to={`/products/${slug}`}>
+    <Link to={`/products/${encodeURIComponent(name)}`}>
       <div className="product-cart">
         <div className="img-container">
           <img src={image} alt={name} />
@@ -27,8 +28,6 @@ const ProductCart = ({ data }) => {
             <span className="rating">{rating}</span>
           </div>
         </div>
-
-
         <div className="product-details">
           <p className="product-name">{name}</p>
           <div className="price-and-button">

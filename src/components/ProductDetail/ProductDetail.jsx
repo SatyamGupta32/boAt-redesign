@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux"; ;
+import { useDispatch } from "react-redux";;
 import ProductCart from "../Cart/Product-cart/ProductCart";
 import { addToCart, toggleStatusTab } from "../../stores/cart";
-import { products, tittles } from "../../data/product";
+import { products, wireless, gadgets, tittles, allProducts } from "../../data/product";
 import Ads from '../../components/Ads/Ads';
 import "./ProductDetail.css";
 
 const ProductDetail = () => {
-  const { slug } = useParams();
+  const { name } = useParams();
+  const decodedName = decodeURIComponent(name);
   const navigate = useNavigate();
   const [detail, setDetail] = useState(null);
   const [quantity, setQuantity] = useState(1);
@@ -24,10 +25,10 @@ const ProductDetail = () => {
     rating: 0,
     comment: "",
   });
- 
+
   // Load product detail
   useEffect(() => {
-    const found = products.find((p) => p.slug === slug);
+    const found = allProducts.find((p) => p.name === decodedName);
     if (found) {
       setDetail(found);
       setReviews(found.reviews || []);
@@ -38,7 +39,7 @@ const ProductDetail = () => {
     } else {
       navigate("/", { replace: true });
     }
-  }, [slug, navigate]);
+  }, [name, navigate]);
 
   const scrollRef = useRef(null);
 
@@ -169,9 +170,8 @@ const ProductDetail = () => {
                     key={idx}
                     src={url}
                     alt="thumbnail"
-                    className={`thumbnail ${
-                      selectedImage === url ? "active" : ""
-                    }`}
+                    className={`thumbnail ${selectedImage === url ? "active" : ""
+                      }`}
                     onClick={() => setSelectedImage(url)}
                   />
                 ))}
@@ -206,9 +206,8 @@ const ProductDetail = () => {
                 {["#000", "#fff", "#2390ac", "#800000"].map((clr) => (
                   <div
                     key={clr}
-                    className={`color-panel${
-                      selectedColor === clr ? " active" : ""
-                    }`}
+                    className={`color-panel${selectedColor === clr ? " active" : ""
+                      }`}
                     onClick={() => setSelectedColor(clr)}
                   >
                     <div

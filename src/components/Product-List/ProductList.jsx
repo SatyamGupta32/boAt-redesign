@@ -1,6 +1,6 @@
 // src/components/ProductList/ProductList.jsx
 import React, { useRef } from "react";
-import { products, tittles } from "../../data/product";
+import { products, gadgets, wireless, tittles } from "../../data/product";
 import ProductCart from "../Cart/Product-cart/ProductCart";
 import "./ProductList.css";
 import Ads from '../Ads/Ads';
@@ -26,7 +26,7 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-list"> 
+    <div className="product-list">
       <div className="category-product-list">
         <div className="category">
           <div className="category-heading">{tittles[0].name}</div>
@@ -48,7 +48,7 @@ const ProductList = () => {
             </button>
           </div>
         </div>
-        <Ads/>
+        <Ads />
         <div className="category">
           <div className="category-heading">{tittles[1].name}</div>
           <div className="line" />
@@ -59,7 +59,7 @@ const ProductList = () => {
             </button>
 
             <div className="product-grid" ref={scrollRef}>
-              {products.map((product) => (
+              {wireless.map((product) => (
                 <ProductCart key={product.id} data={product} />
               ))}
             </div>
@@ -80,7 +80,7 @@ const ProductList = () => {
             </button>
 
             <div className="product-grid" ref={scrollRef}>
-              {products.map((product) => (
+              {gadgets.map((product) => (
                 <ProductCart key={product.id} data={product} />
               ))}
             </div>
