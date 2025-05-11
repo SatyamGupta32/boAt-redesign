@@ -1,6 +1,6 @@
 // src/components/Home/Home.jsx
 import React, { useEffect } from "react";
-import "./Home.css";
+import "./home.css";
 import Header from '../../components/Header/header'
 import Carousel from "../../components/Carousel/CArousel";
 import ProductList from "../../components/Product-List/ProductList";
