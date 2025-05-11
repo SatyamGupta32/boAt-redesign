@@ -1,10 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import Ads from "../Ads/ads";
+import { useDispatch } from "react-redux"; ;
 import ProductCart from "../Cart/Product-cart/ProductCart";
 import { addToCart, toggleStatusTab } from "../../stores/cart";
 import { products, tittles } from "../../data/product";
+import Ads from '../../components/Ads/Ads';
 import "./ProductDetail.css";
 
 const ProductDetail = () => {
