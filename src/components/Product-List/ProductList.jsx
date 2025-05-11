@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { products, tittles } from "../../data/product";
 import ProductCart from "../Cart/Product-cart/ProductCart";
 import "./ProductList.css";
-import Ads from "../Ads/ads";
+import Ads from '../Ads/Ads';
 
 const ProductList = () => {
   const scrollRef = useRef(null);
