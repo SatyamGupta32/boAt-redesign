@@ -163,6 +163,49 @@
     color: #5a2727;
 }
 
+/* existing .boat .A styling */
+.boat .A {
+    color: #5a2727;
+    animation: animateA 5s linear infinite;
+}
+
+/* keyframes for the red–glow on the “A” */
+@keyframes animateA {
+
+    0%,
+    18%,
+    20%,
+    50.1%,
+    60%,
+    65.1%,
+    80%,
+    90.1%,
+    92% {
+        color: #5a2727;
+        /* dark red */
+        text-shadow: none;
+    }
+
+    18.1%,
+    20.1%,
+    30%,
+    50%,
+    60.1%,
+    65%,
+    80.1%,
+    90%,
+    92.1%,
+    100% {
+        color: #dd1f1f;
+        /* bright red */
+        text-shadow:
+            0 0 8px #db3939,
+            0 0 16px #d83232,
+            0 0 32px #df1010,
+            0 0 48px #df1010;
+    }
+}
+
 .boat .bass {
     font-size: 80px;
     height: 95px;
