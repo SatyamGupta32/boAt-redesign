@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Analytics } from '@vercel/analytics/react';
 import { Container, GlobalStyles } from "./App.style.js";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
@@ -22,6 +23,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
       </Routes>
+       <Analytics />
     </Container>
   );
 }
