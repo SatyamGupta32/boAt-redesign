@@ -79,11 +79,16 @@
 }
 
 .thumbnails {
+  padding:0 10px;
   flex: 1;
   display: flex;
   gap: 0.5rem;
   overflow-x: auto;
   scroll-behavior: smooth;
+}
+
+.thumbnails::-webkit-scrollbar{
+  display: none;
 }
 
 .thumbnail {
