@@ -119,10 +119,15 @@
     gap: 100px;
 }
 
-.bOat {
+.boat {
     display: flex;
     gap: 20px;
     align-items: flex-end;
+}
+
+.boat::selection {
+  background-color: #525151;
+  color: white;
 }
 
 @keyframes animate {
@@ -169,6 +174,11 @@
     animation: animateA 5s linear infinite;
 }
 
+.boat .A::selection {
+  background-color: #5a2727;
+  color: white;
+}
+
 /* keyframes for the red–glow on the “A” */
 @keyframes animateA {
 
@@ -211,6 +221,11 @@
     height: 95px;
     color: #2390ac;
     animation: animate2 5s linear infinite;
+}
+
+.boat .bass::selection {
+  background-color: #005c74;
+  color: white;
 }
 
 @keyframes animate2 {

@@ -21,6 +21,11 @@ export const GlobalStyles = createGlobalStyle`
     font-style: normal; 
     overflow-x: hidden; 
   }
+
+  body::selection {
+  background-color: red;
+  color: white;
+  }
  
   body::-webkit-scrollbar, html::-webkit-scrollbar {
     width: 6px !important;

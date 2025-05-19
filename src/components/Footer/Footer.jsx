@@ -147,7 +147,7 @@ const Footer = () => {
             contentEditable={true}
             suppressContentEditableWarning={true}
           >
-            <div className="bOat">
+            <div className="boat">
               <div>
                 {" "}
                 bo<span className="A">A</span>t
